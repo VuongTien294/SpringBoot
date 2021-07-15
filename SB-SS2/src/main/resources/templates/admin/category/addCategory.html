@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="admin/common/header :: head"></div>
+<body>
+	<section id="container">
+		<div th:replace="admin/common/header :: header"></div>
+		<div th:replace="admin/common/sidebar :: sidebar"></div>
+		<!--sidebar end-->
+		<section id="main-content">
+			<section class="wrapper">
+
+				<form th:action="@{/admin/category/add}" method="post">
+					<div class="form-group">
+						<label>Name : </label> <input class="form-control" type="text"
+							name="name">
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary" type="submit">Them</button>
+					</div>
+				</form>
+				<div th:text="${sucess}"></div>
+			</section>
+			<!-- /wrapper -->
+		</section>
+		<!-- /MAIN CONTENT -->
+		<!--main content end-->
+		<!--footer start-->
+		<div th:replace="admin/common/footer :: footer"></div>
+		<!--footer end-->
+	</section>
+</body>
+
+</html>

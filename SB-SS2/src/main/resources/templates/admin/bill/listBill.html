@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="admin/common/header :: head"></div>
+<body>
+<section id="container">
+<div th:replace="admin/common/header :: header"></div>
+<div th:replace="admin/common/sidebar :: sidebar"></div>
+	<!--sidebar end-->
+	<section id="main-content">
+		<section class="wrapper">
+						<div>
+
+					<form th:action="@{/admin/bill/search}" method="get">
+						<input type="text" name="name">
+						<button type="submit" class="btn btn-primary">Tim</button>
+					</form>
+
+				</div>
+			<table class="table table-striped table-dark">
+		<tr>
+			<td>Id</td>
+			<td>Buyer</td>
+			<td>Status</td>
+			<td>BuyDate</td>
+			<td>DiscountPersent</td>
+			<td>Coupons Name</td>
+			<td>Pay</td>
+			<td>Price Total</td>
+			<td>Option</td>
+		</tr>
+	    <tr th:each="bill:${billList}">
+			<td th:text="${bill.id}"></td>
+			<td th:text="${bill.buyer.name}"></td>
+			<td th:text="${bill.status}"></td>
+			<td th:text="${bill.buyDate}"></td>
+			<td th:text="${bill.discountPercent+'%'}"></td>
+			<td th:text="${bill.couponsName}"></td>
+			<td th:text="${bill.pay}"></td>
+			<td th:text="${bill.priceTotal}"></td>
+			<td><a class="btn btn-primary btn-xs" th:href="@{'/admin/billproduct/search?billId='+${bill.id}}"><i class="fa fa-bars "></i></a> | 
+				
+				 <a class="btn btn-danger btn-xs" th:href="@{'/admin/bill/delete?billId='+${bill.id}}"><i class="fa fa-trash-o "></i></a>	
+		    </td>
+		</tr>
+	</table>
+					<div th:if="${result &gt; 0}"><!-- &gt la dau >,&it la dau < trong html -->
+				<ul class="pagination">
+				
+				<li class="page-item">	
+				<a th:class="${i == currentPage ? 'activePage' : '' }" class="page-link"
+						th:href="@{'/admin/bill/search?page=' + ${i}} +'&name=' +${name}"
+						th:each="i : ${#numbers.sequence( 1, result)}"
+						th:text="${ i }+'  '"></a>
+						
+				</li>
+					
+				</ul>
+
+				</div>
+		  </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+<div th:replace="admin/common/footer :: footer"></div>
+<!--footer end-->
+</section>
+</body>
+
+</html>
+    
+

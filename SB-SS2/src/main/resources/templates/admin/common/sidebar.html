@@ -1,0 +1,59 @@
+<div th:fragment="sidebar">
+
+	<aside>
+		<div id="sidebar" class="nav-collapse ">
+			<!-- sidebar menu start-->
+			<ul class="sidebar-menu" id="nav-accordion">
+				<p class="centered">
+					<a th:href="@{/profile}"><img th:src="@{/img/GangPlank.jpg}"
+						class="img-circle" width="80"></a>
+				</p>
+				<h5 class="centered">Vuong Tien</h5>
+
+				<li class="sub-menu"><a th:href="@{/javascript:;}"> <i
+						class="fa fa-tasks"></i> <span>Quan Li Category</span>
+				</a>
+					<ul class="sub">
+						<li><a th:href="@{/admin/category/add}">Add Category</a></li>
+						<li><a th:href="@{/admin/category/search}">List Category</a></li>
+					</ul></li>
+
+				<li class="sub-menu"><a th:href="@{/javascript:;}"> <i
+						class="fa fa-tasks"></i> <span>Quan Li Product</span>
+				</a>
+					<ul class="sub">
+						<li><a th:href="@{/admin/product/add}">Add Product</a></li>
+						<li><a th:href="@{/admin/product/search}">List Product</a></li>
+					</ul></li>
+
+				<li class="sub-menu"><a th:href="@{/javascript:;}"> <i
+						class="fa fa-tasks"></i> <span>Quan Li User</span>
+				</a>
+					<ul class="sub">
+						<li><a th:href="@{/admin/user/add}">Add User</a></li>
+						<li><a th:href="@{/admin/user/search}">List User</a></li>
+					</ul></li>
+
+				<li class="sub-menu"><a th:href="@{/javascript:;}"> <i
+						class="fa fa-tasks"></i> <span>Quan Li Bill</span>
+				</a>
+					<ul class="sub">
+						<li><a th:href="@{/admin/bill/add}">Add Bill</a></li>
+						<li><a th:href="@{/admin/bill/search}">List Bill</a></li>
+					</ul></li>
+
+				<li class="sub-menu"><a th:href="@{/javascript:;}"> <i
+						class="fa fa-tasks"></i> <span>Quan Li Coupon</span>
+				</a>
+					<ul class="sub">
+						<li><a th:href="@{/admin/coupon/add}">Add Coupon</a></li>
+						<li><a th:href="@{/admin/coupon/search}">List Coupon</a></li>
+					</ul></li>
+
+
+			</ul>
+			<!-- sidebar menu end-->
+		</div>
+	</aside>
+
+</div>

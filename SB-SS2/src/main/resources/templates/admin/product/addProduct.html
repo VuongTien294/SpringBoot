@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="admin/common/header :: head"></div>
+<body>
+	<section id="container">
+		<div th:replace="admin/common/header :: header"></div>
+		<div th:replace="admin/common/sidebar :: sidebar"></div>
+		<!--sidebar end-->
+		<section id="main-content">
+			<section class="wrapper">
+				<form th:action="@{/admin/product/add}" method="post"
+					th:object="${product}" enctype="multipart/form-data">
+					<div class="form-group">
+						<label>Name : </label> <input class="form-control" type="text"
+							name="name" th:field="*{name}">
+					</div>
+
+					<div class="form-group">
+						<label>Price : </label> <input class="form-control"
+							required="required" type="number" name="price"
+							th:field="*{price}">
+					</div>
+					<div class="form-group">
+						<label>Quantity : </label> <input class="form-control"
+							required="required" type="number" name="quantity"
+							th:field="*{quantity}">
+					</div>
+					<div class="form-group">
+						<label>Description : </label> <input class="form-control"
+							required="required" type="text" name="description"
+							th:field="*{description}">
+					</div>
+					<div class="form-group">
+						<label>Category : </label> <select th:field="*{categoryDTO.id}">
+							<option th:each="cate: ${categoryList}" th:value="${cate.id}"
+								th:text="${cate.name}"></option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label>Image:</label> <input type="file" name="imageFile"
+							accept="image/*" />
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-primary" type="submit">Them</button>
+					</div>
+				</form>
+				<div th:text="${sucess}"></div>
+			</section>
+			<!-- /wrapper -->
+		</section>
+		<!-- /MAIN CONTENT -->
+		<!--main content end-->
+		<!--footer start-->
+		<div th:replace="admin/common/footer :: footer"></div>
+		<!--footer end-->
+	</section>
+</body>
+</html>
+

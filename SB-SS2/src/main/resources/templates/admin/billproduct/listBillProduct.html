@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="admin/common/header :: head"></div>
+<body>
+	<section id="container">
+		<div th:replace="admin/common/header :: header"></div>
+		<div th:replace="admin/common/sidebar :: sidebar"></div>
+		<!--sidebar end-->
+		<section id="main-content">
+			<section class="wrapper">
+				<table class="table table-striped table-dark">
+					<tr>
+						<td>Id</td>
+						<td>BillId</td>
+						<td>Product Name</td>
+						<td>Unit Price</td>
+						<td>Quantity</td>
+						<td>Total</td>
+						<td>Option</td>
+					</tr>
+					<tr th:each="billproduct:${billproductList}">
+						<td th:text="${billproduct.id}"></td>
+						<td th:text="${billproduct.bill.id}"></td>
+						<td th:text="${billproduct.product.name}"></td>
+						<td th:text="${billproduct.product.price}"></td>
+						<td th:text="${billproduct.quantity}"></td>
+						<td th:text="${billproduct.quantity*billproduct.product.price}"></td>
+						<td>
+						 <a class="btn btn-danger btn-xs" th:href="@{'/admin/billproduct/delete?billproductId='+${billproduct.bill.id}}"><i class="fa fa-trash-o "></i></a>	
+						</td>
+					</tr>
+				</table>
+			</section>
+			<!-- /wrapper -->
+		</section>
+		<!-- /MAIN CONTENT -->
+		<!--main content end-->
+		<!--footer start-->
+		<div th:replace="admin/common/footer :: footer"></div>
+		<!--footer end-->
+	</section>
+</body>
+
+</html>
+
+

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="admin/common/header :: head"></div>
+<body>
+	<section id="container">
+		<div th:replace="admin/common/header :: header"></div>
+		<div th:replace="admin/common/sidebar :: sidebar"></div>
+		<!--sidebar end-->
+		<section id="main-content">
+			<section class="wrapper">
+				<form th:action="@{/admin/billproduct/add}" method="post"
+					th:object="${billproduct}">
+
+					<div class="form-group">
+						<label>BillId:</label> <input class="form-control"
+							required="required" type="text" readonly="readonly" name="billid"
+							th:field="*{bill.id}">
+					</div>
+
+					<div class="form-group">
+						<label>Product : </label> <select th:field="*{product.id}">
+							<option th:each="product: ${productList}"
+								th:value="${product.id}" th:text="${product.name}"></option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label>Quantity:</label> <input class="form-control"
+							required="required" type="number" name="quantity"
+							th:field="*{quantity}">
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-primary" type="submit">Them</button>
+					</div>
+				</form>
+				<div th:text="${sucess}"></div>
+			</section>
+			<!-- /wrapper -->
+		</section>
+		<!-- /MAIN CONTENT -->
+		<!--main content end-->
+		<!--footer start-->
+		<div th:replace="admin/common/footer :: footer"></div>
+		<!--footer end-->
+	</section>
+</body>
+</html>
+

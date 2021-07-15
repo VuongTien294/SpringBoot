@@ -1,0 +1,31 @@
+<div th:replace="client/common/header :: header"></div>
+<div class="alert alert-primary" role="alert">
+  <h2>Login Form</h2>
+</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">	
+			    <p th:if="${error} !=null">Tai khoan hoac mat khau ko dung!</p>	
+				<form role="form" th:action="@{/login}" method="post">
+					<div class="form-group">
+						<label> Username </label>
+						 <input type="text" class="form-control" name="username" />
+					</div>
+					<div class="form-group">
+						<label> Password </label> 
+						<input type="password" class="form-control" name="password" />
+					</div>
+					<div class="form-group">
+						<a th:href="@{/register}">Dang ky</a>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Login</button>
+					</div>
+				</form>
+			
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+<div th:replace="client/common/footer :: footer"></div>

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="admin/common/header :: head"></div>
+<body>
+<section id="container">
+<div th:replace="admin/common/header :: header"></div>
+<div th:replace="admin/common/sidebar :: sidebar"></div>
+	<!--sidebar end-->
+	<section id="main-content">
+		<section class="wrapper">
+				<div>
+
+					<form th:action="@{/admin/category/search}" method="get">
+						<input type="text" name="name">
+						<button type="submit" class="btn btn-primary">Tim</button>
+					</form>
+
+				</div>
+			<table class="table table-striped table-dark">
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Option</td>
+		</tr>
+	    <tr th:each="category:${cateList}">
+			<td th:text="${category.id}"></td>
+			<td th:text="${category.name}"></td>
+			<td>
+			<a class="btn btn-primary btn-xs" th:href="@{'/admin/category/update?id='+${category.id}}"><i class="fa fa-pencil"></i></a>			
+			 | 
+			 <a class="btn btn-danger btn-xs" th:href="@{'/admin/category/delete?id='+${category.id}}"><i class="fa fa-trash-o "></i></a>
+			
+		    </td>
+		</tr>
+	</table>
+					<div th:if="${result &gt; 0}"><!-- &gt la dau >,&it la dau < trong html -->
+				<ul class="pagination">
+				
+				<li class="page-item">	
+				<a th:class="${i == currentPage ? 'activePage' : '' }" class="page-link"
+						th:href="@{'/admin/category/search?page=' + ${i}} +'&name=' +${name}"
+						th:each="i : ${#numbers.sequence( 1, result)}"
+						th:text="${ i }+'  '"></a>
+						
+				</li>
+					
+				</ul>
+
+				</div>
+		  </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+<div th:replace="admin/common/footer :: footer"></div>
+<!--footer end-->
+</section>
+</body>
+
+</html>
+
+    
+

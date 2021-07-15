@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="admin/common/header :: head"></div>
+<body>
+<section id="container">
+<div th:replace="admin/common/header :: header"></div>
+<div th:replace="admin/common/sidebar :: sidebar"></div>
+	<!--sidebar end-->
+	<section id="main-content">
+		<section class="wrapper">
+						<form th:action="@{/admin/product/update}" th:object="${product}" method="post" enctype="multipart/form-data">
+					<div class="form-group">
+						<label>ID:</label>
+						 <input name="id" th:field="*{id}" class="form-control" type="text" readonly="readonly">
+					</div>
+					<div class="form-group">
+						<label>Name:</label> 
+						<input th:field="*{name}" class="form-control" type="text"  placeholder="Nhap ten">
+
+					<div class="form-group">
+						<label>Price:</label> 
+						<input th:field="*{price}" class="form-control" type="text"  placeholder="Nhap price">
+					</div>
+					<div class="form-group">
+						<label>Quantity:</label> 
+						<input th:field="*{quantity}" class="form-control" type="number"  placeholder="Nhap quantity">
+					</div>
+					
+					<div class="form-group">
+						<label>Description:</label> 
+						<input th:field="*{description}" class="form-control" type="text"  placeholder="Nhap description">
+					</div>
+					
+					<div class="form-group">
+						<label>Category:</label>
+						<select th:field="*{categoryDTO.id}">
+					    <option th:each="cate: ${categoryList}" th:value="${cate.id}"
+						th:text="${cate.name}"></option>
+				       </select>
+					</div>	
+					
+				   <div class="form-group">
+				        <label>Image:</label> <input  type="file" name="imageFile"
+					accept="image/*" />
+			       </div>	
+					
+					<div class="form-group">
+						<input class="btn btn-primary" type="submit" value="Update">
+					</div>
+				</form>
+		  </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+<div th:replace="admin/common/footer :: footer"></div>
+<!--footer end-->
+</section>
+</body>
+</html>
+

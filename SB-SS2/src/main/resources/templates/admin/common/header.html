@@ -1,0 +1,61 @@
+
+
+
+
+<head th:fragment="head">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Dashboard">
+<meta name="keyword"
+	content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<title>ShopGiayAdmin</title>
+
+<!-- Favicons -->
+<link th:href="@{/img/favicon.png}" rel="icon">
+<link th:href="@{/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+<!-- Bootstrap core CSS -->
+<link th:href="@{/lib/bootstrap/css/bootstrap.min.css}" type="text/css"
+	rel="stylesheet">
+<!--external css-->
+<link th:href="@{/lib/font-awesome/css/font-awesome.css}"
+	type="text/css" rel="stylesheet" />
+<!-- Custom styles for this template -->
+<!--  
+
+  -->
+<link th:href="@{/admincss/style.css}" type="text/css" rel="stylesheet">
+<link th:href="@{/admincss/style-responsive.css}" type="text/css"
+	rel="stylesheet">
+</head>
+
+
+
+<header class="header black-bg" th:fragment="header">
+	<div class="sidebar-toggle-box">
+		<div class="fa fa-bars tooltips" data-placement="right"
+			data-original-title="Toggle Navigation"></div>
+	</div>
+	<!--logo start-->
+	<a href="index.html" class="logo"><b>Vuong<span>Tien</span></b></a>
+	<!--logo end-->
+	<div class="nav notify-row" id="top_menu">
+		<!--  notification start -->
+		<ul class="nav top-menu">
+
+		</ul>
+		<!--  notification end -->
+	</div>
+	<div class="top-menu"></div>
+	<div class="top-menu">
+
+		<ul class="nav pull-right top-menu">
+			<li><a class="logout" th:href="@{/logout}">Logout</a></li>
+		</ul>
+
+	</div>
+
+
+</header>
+

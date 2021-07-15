@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="admin/common/header :: head"></div>
+<body>
+<section id="container">
+<div th:replace="admin/common/header :: header"></div>
+<div th:replace="admin/common/sidebar :: sidebar"></div>
+	<!--sidebar end-->
+	<section id="main-content">
+		<section class="wrapper">
+						<form th:action="@{/admin/category/update}" th:object="${category}" method="post">
+					<div class="form-group">
+						<label>ID:</label>
+						 <input name="id" th:field="*{id}" class="form-control" type="text" readonly="readonly">
+					</div>
+					<div class="form-group">
+						<label>Name:</label> 
+						<input th:field="*{name}" class="form-control" type="text" name="name" placeholder="Nhap ten">
+                      </div>
+
+					<div class="form-group">
+						<input class="btn btn-primary" type="submit" value="update">
+					</div>
+				</form>
+		  </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+<div th:replace="admin/common/footer :: footer"></div>
+<!--footer end-->
+</section>
+</body>
+
+</html>
+
+

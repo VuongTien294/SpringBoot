@@ -1,0 +1,74 @@
+<div th:fragment="navbar">
+	<div class="colorlib-loader"></div>
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-7 col-md-9">
+							<div id="colorlib-logo"><a th:href="@{/products}">Footwear</a></div>
+						</div>
+						<div class="col-sm-5 col-md-3">
+			            <form th:action="@{/products}" class="search-wrap" method="get">
+			               <div class="form-group">
+			                  <input type="search" name="name" class="form-control search" placeholder="Search">
+			                  <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
+			               </div>
+			            </form>
+			         </div>
+		         </div>
+					<div class="row">
+						<div class="col-sm-12 text-left menu-1" sec:authorize="isAuthenticated()">
+							<ul>
+								<li><a th:href="@{/products}">Home</a></li>
+								<li class="has-dropdown active">
+									<a href="#">Category</a>
+									<ul class="dropdown">
+									
+									<li th:each="cate:${listCate}"><a th:href="@{'/products/searchbycate?cateId='+${cate.id }}" th:text="${cate.name}"></a></li>									
+									
+									</ul>
+								</li>
+								<li><a th:href="@{/client/about}">About</a></li>
+								<li><a th:href="@{/client/contact}">Contact</a></li>
+								
+								<li>Xin Chao<span sec:authentication="principal.name"></span> <!-- <span th:text ="${#authentication.principal.name}"></span> --></li>
+								
+								<li class="cart"><a th:href="@{/cart}"><i class="icon-shopping-cart"></i>Cart</a></li>
+								<li class="bill"><a th:href="@{/member/bills}"><ion-icon name="newspaper-outline"></ion-icon>Bill</a></li>
+		                         <li class="has-dropdown active">
+									<a href="#">User</a>
+									<ul class="dropdown">
+									<li><a th:href="@{/login}">Login</a></li>
+									<li><a th:href="@{/logout}">Logout</a></li>																				
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sale">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 offset-sm-2 text-center">
+							<div class="row">
+								<div class="owl-carousel2">
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">25% off (Almost) Everything! Use Code: Summer Sale</a></h3>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">Our biggest sale yet 50% off all summer shoes</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+    </div>
